@@ -4,22 +4,24 @@ var Site = window.Site || {};
 
 /* Create a closure to maintain scope of the '$'
 and remain compatible with other frameworks.  */
-(function($) {  
+(function($) {
   $(window).bind("load", function() {
     $("#loader").fadeOut(300);
   });
   $(document).ready(function(){
     general();
-    
+
     // Scope projects
-    
-    BuildMap();
-    
+    if ( $(".map_wrapper__embed").length ) {
+     BuildMap();
+     }
+
+
 
     //anchor animate
     $('a[href*=#]:not([href=#])').click(function() {
       if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
-        
+
         var target = $(this.hash);
 
         target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
@@ -32,13 +34,13 @@ and remain compatible with other frameworks.  */
       }
     });
 
-    //return image 
+    //return image
     $(".return_parent").each(function (index){
       var imgSrc = $(this).attr('src');
       $(this).parent('.src_return').css('background-image', 'url(' + imgSrc + ')');
     });
 
-    
+
     //menu responsive
     $(".ico_menu").click(function(event) {
       if($('nav').css("display") == "none"){
@@ -63,7 +65,7 @@ and remain compatible with other frameworks.  */
 
     var sync1 = $("#owl-planos");
     var sync2 = $("#owl-medidas");
-   
+
     sync1.owlCarousel({
       singleItem : true,
       slideSpeed : 1000,
@@ -72,7 +74,7 @@ and remain compatible with other frameworks.  */
       afterAction : syncPosition,
       responsiveRefreshRate : 200,
     });
-   
+
     sync2.owlCarousel({
       items : 7,
       itemsDesktop      : [1199,7],
@@ -85,7 +87,7 @@ and remain compatible with other frameworks.  */
         el.find(".owl-item").eq(0).addClass("synced");
       }
     });
-   
+
     function syncPosition(el){
       var current = this.currentItem;
       $("#owl-medidas")
@@ -97,13 +99,13 @@ and remain compatible with other frameworks.  */
         center(current)
       }
     }
-   
+
     $("#owl-medidas").on("click", ".owl-item", function(e){
       e.preventDefault();
       var number = $(this).data("owlItem");
       sync1.trigger("owl.goTo",number);
     });
-   
+
     function center(number){
       var sync2visible = sync2.data("owlCarousel").owl.visibleItems;
       var num = number;
@@ -113,7 +115,7 @@ and remain compatible with other frameworks.  */
           var found = true;
         }
       }
-   
+
       if(found===false){
         if(num>sync2visible[sync2visible.length-1]){
           sync2.trigger("owl.goTo", num - sync2visible.length+2)
@@ -128,7 +130,7 @@ and remain compatible with other frameworks.  */
       } else if(num === sync2visible[0]){
         sync2.trigger("owl.goTo", num-1)
       }
-      
+
     }
 
 
@@ -161,7 +163,7 @@ and remain compatible with other frameworks.  */
     });
 
 
-    var slider = $(".royalSlider").data('royalSlider'); 
+    var slider = $(".royalSlider").data('royalSlider');
 
 
     $(".acordeon a").on("click", function(e){
@@ -172,7 +174,7 @@ and remain compatible with other frameworks.  */
         // $(this).parent('h5').next('div').slideDown(400);
       }
 
-      
+
     });
 
   });
@@ -197,7 +199,7 @@ and remain compatible with other frameworks.  */
 
 
 
-function general (){  
+function general (){
   var thisHeight = $(window).height();
   var thisWidth = $(window).width();
    if (thisWidth <=700){
@@ -222,13 +224,13 @@ function BuildMap(){
   var Len = parseFloat(latSplited[1]);
 
   if(mapCoords != ''){
-    
+
     var map = L.map('theMap', {
       center: [Lat,Len],
       zoom: 16.5
     });
 
-    
+
     var div_circle = L.divIcon({ className: 'pointer'});
 
     var mapRender = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -237,7 +239,7 @@ function BuildMap(){
 
 
     var markerItem = L.marker([Lat,Len],{icon: div_circle}).addTo(map).bindPopup('<h3>'+ mapAddress +'</h3>').openPopup();
-  
+
   }
 }
 
@@ -250,7 +252,7 @@ function Contacto(){
   }else{
     $('.form').fadeOut(300);
   }
-  
+
 }
 
 function compartir(){
