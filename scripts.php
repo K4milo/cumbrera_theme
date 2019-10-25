@@ -6,6 +6,8 @@
 	<script src="<?php bloginfo('template_url'); ?>/scripts/owl.carousel.min.js"></script>
 	<script src="<?php bloginfo('template_url'); ?>/scripts/ios-orientationchange-fix.js"></script>
   	<script src="<?php bloginfo('template_url'); ?>/scripts/jquery.swipebox.min.js"></script>
+  	<script src="<?php bloginfo('template_url'); ?>/scripts/leaflet.js"></script>
+  	<script src="<?php bloginfo('template_url'); ?>/scripts/mapbox.js"></script>
 	<script src="<?php bloginfo('template_url'); ?>/scripts/functions.js"></script>
 	<script>
 	  $(document).ready(function() {

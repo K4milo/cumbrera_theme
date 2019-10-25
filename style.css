@@ -3,6 +3,6 @@ Author: Fragma digital
 Version: 1.0
 Description: Theme Cumbrera
 */
-
+@import url('css/leaflet.css');
 @import url('css/main.css');
 @import url('css/prototype.css');

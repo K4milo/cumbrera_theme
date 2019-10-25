@@ -864,3 +864,24 @@ html.swipebox-html.swipebox-touch {
       width: 99.9%;
     }
 }
+
+/* Map scripts*/
+.map_wrapper__embed {
+  width: 100%;
+  position: relative;
+  min-height: 450px;
+}
+
+.leaflet-popup-content h3 {
+  text-transform: uppercase;
+  font-weight: bold;
+  padding: 20px;
+}
+
+/*Pointer*/
+.map_wrapper__embed .pointer {
+  width: 30px !important;
+  height: 41px !important;
+  background-size: 100%;
+  background-image: url('../images/pointer.png');
+}

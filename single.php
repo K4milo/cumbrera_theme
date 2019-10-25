@@ -23,6 +23,8 @@ $ubicacion = get_field('ubicacion');
 $estado = get_field('estado');
 $ciudad = get_field('ciudad');
 $relacionados = get_field('proyectos_relacionados');
+$coords = get_field('proj_latitude');
+$address = get_field('direccion_del_proyecto');
 ?>
 <div class="w-1000 c_detalle">
   <div class="miga antialias">
@@ -113,47 +115,18 @@ $relacionados = get_field('proyectos_relacionados');
     </div>
   </div>
 </div>
-<?php } ?>
-<!--<div class="mapa">
-  <div id="map_canvas"></div>
-  <div class="form">
-    <div class="c_form">
-      <form action="<?php echo $link; ?>/#contacto" method="POST" id="form_contacto">
-            <input type="hidden" name="selproy" value="<?php echo $nombre; ?>" />
-      <h2 class="tit antialias">CONTÁCTENOS</h2>
-      <div class="clearfix">
-      <span class="anchor" id="contacto"></span>
-        <div class="left">
-        <label for="">Nombre:</label>
-        <input type="text" name="nombre" value="<?php echo $_POST['nombre']; ?>" required="required">
-        <label for="">Apellido:</label>
-        <input type="text"name="apellido" value="<?php echo $_POST['apellido']; ?>" required="required">
-        <label for="">E-mail:</label>
-        <input type="text" name="email" value="<?php echo $_POST['email']; ?>" required="required">
-        <label for="">Teléfono:</label>
-        <input type="text" name="telefono" value="<?php echo $_POST['telefono']; ?>" required="required">
-        <div style="color:red;width: 245px;"><?php if(count($errores) > 0){ echo implode(",",$errores); }else{ echo $response_sent;} ?></div>
-      </div>
-      <div class="left in2">
-        <label for="">Asunto:</label>
-        <input type="text" name="asunto" value="<?php echo $_POST['asunto']; ?>" required="required">
-        <label for="">Mensaje:</label>
-        <textarea name="mensaje" required="required"><?php echo $_POST['mensaje']; ?></textarea>
-        <input type="submit" value="Enviar" class="btn">
-        <a href="javascript:$('#form_contacto').submit();"class="btn">Enviar</a>-->
-      <!--</div>
-      </div>
-      </form>
-    </div>
+<?php }
+
+// Build map 
+if($coords){
+  ?>
+  
+  <div class="map_wrapper container">
+    <div id="theMap" class="map_wrapper__embed" data-coords="<?php echo $coords; ?>" data-dir="<?php echo $address; ?>"></div>
   </div>
-  <div class="miMail"></div>
-  <div class="compartir">
-    <div class="compartir_c">
-      <a href="http://www.facebook.com/share.php?u=<?php echo "$link&title=$nombre"; ?>" target="_blank"><img src="<?php bloginfo('template_url'); ?>/images/facebook.png"></a>
-      <a href="http://twitter.com/home?status=<?php echo "$nombre+$link"; ?>" target="_blank"><img src="<?php bloginfo('template_url'); ?>/images/twitter.png"></a>
-    </div>
-  </div>
-</div>-->
+
+  <?php  
+} ?>
 
 <ul class="reset_list links_detalle center">
   <li><a href="javascript:void(0);" class="btn" onclick="Contacto();">CONTÁCTENOS</a></li>
@@ -182,7 +155,6 @@ if(!empty($relacionados)>0){ ?>
   </ul>
 </div>
 <?php }
-
 }
 
 //LANDING

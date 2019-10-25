@@ -1,4 +1,7 @@
 <?php
+
+add_action('init', 'ciudades_post_type');
+
 //================================================
 //		PROTOTYPE.com.co
 //================================================
@@ -351,19 +354,3 @@ function ciudades_post_type(){
 	);
 	register_post_type('Ciudad',$args);
 }
-
-add_action('init', 'ciudades_post_type');
-
-// Equeue scripts
-function bst_enqueues() {
-
-
-	wp_register_script('leaflet-js', get_template_directory_uri() . '/scripts/leaflet.js', false, null, true);
-	wp_enqueue_script('leaflet-js');
-	
-	wp_register_script('mapbox-js', get_template_directory_uri() . '/scripts/mapbox.js', false, null, true);
-	wp_enqueue_script('mapbox-js');
-
-	
-}
-add_action('wp_enqueue_scripts', 'bst_enqueues', 100);

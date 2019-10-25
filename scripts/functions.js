@@ -10,6 +10,11 @@ and remain compatible with other frameworks.  */
   });
   $(document).ready(function(){
     general();
+    
+    // Scope projects
+    
+    BuildMap();
+    
 
     //anchor animate
     $('a[href*=#]:not([href=#])').click(function() {
@@ -208,6 +213,33 @@ function Filter(div){
   $(div).show();
 }
 
+function BuildMap(){
+  var mapHolder  = $('.map_wrapper__embed');
+  var mapCoords  = mapHolder.data('coords');
+  var mapAddress = mapHolder.data('dir');
+  var latSplited = mapCoords.split(",");
+  var Lat = parseFloat(latSplited[0]);
+  var Len = parseFloat(latSplited[1]);
+
+  if(mapCoords != ''){
+    
+    var map = L.map('theMap', {
+      center: [Lat,Len],
+      zoom: 16.5
+    });
+
+    
+    var div_circle = L.divIcon({ className: 'pointer'});
+
+    var mapRender = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+          attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+      }).addTo(map);
+
+
+    var markerItem = L.marker([Lat,Len],{icon: div_circle}).addTo(map).bindPopup('<h3>'+ mapAddress +'</h3>').openPopup();
+  
+  }
+}
 
 //PROTOTYPE
 
@@ -228,5 +260,4 @@ function compartir(){
   }else{
     $('.compartir').fadeOut(300);
   }
-  
 }

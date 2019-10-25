@@ -43,6 +43,7 @@
 	</footer>
 </div>
 <?php include('scripts.php'); ?>
+<?php wp_footer(); ?>
 </body>
 </html>
 
