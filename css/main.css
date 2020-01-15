@@ -199,10 +199,10 @@ footer .left p{ display: inline-block; vertical-align: top;}
 .c_slide_principal .owl-next, .planos .owl-next{ right: 20px;-ms-transform: rotate(180deg); -webkit-transform: rotate(180deg);  transform: rotate(180deg);}
 .owl-buttons div:hover{ opacity: 1; filter: alpha(opacity=100); }
 
-.cont_1{ width:320px; color: #6e6f72; padding-right: 40px;}
+.cont_1{ width:509px; color: #6e6f72; padding-left: 40px;}
 .cont_1 h3{ color: #b6191e; margin: 30px 0;}
 .cont_1 h3:after, .planos h4:after{ background: #b6191e; width: 40px;}
-.c1_detalle .cont_2{ width: calc(100% - 320px); }
+.c1_detalle .cont_2{ width: calc(100% - 509px); }
 .c1_detalle .cont_2 img, .planos a > img{ width: 100%; }
 .c1_detalle{ margin-bottom: 30px; }
 
@@ -884,4 +884,64 @@ html.swipebox-html.swipebox-touch {
   height: 41px !important;
   background-size: 100%;
   background-image: url('../images/pointer.png');
+}
+/*redes proyectos*/
+.social{
+  position: fixed;
+  left: 0;
+  top: 300px;
+  z-index: 100;
+}
+
+  .social-item a{
+                    display: block;
+          float: none;
+          width: 35px;
+          height: 46px;
+          background-position: 50%;
+          background-color: #a9171b;
+          background-size: 65%;
+          background-repeat: no-repeat;
+          margin: 10 10px;
+        }
+        .whatsapp{
+          background-image: url('http://www.cumbrera.co/wp-content/themes/cumbrera/icons/wp.svg');
+        }
+        .facebook{
+          background-image: url('http://www.cumbrera.co/wp-content/themes/cumbrera/icons/fb.svg');
+        }
+        .instagram{
+          background-image: url('http://www.cumbrera.co/wp-content/themes/cumbrera/icons/ig.svg');
+        }
+
+.social-item a {
+-webkit-transition:all .5s ease; /* Safari y Chrome */
+-moz-transition:all .5s ease; /* Firefox */
+-o-transition:all .5s ease; /* IE 9 */
+-ms-transition:all .5s ease; /* Opera */
+width:100%;
+}
+.social-item:hover a {
+-webkit-transform:scale(1.25);
+-moz-transform:scale(1.25);
+-ms-transform:scale(1.25);
+-o-transform:scale(1.25);
+transform:scale(1.25);
+}
+.social-item {/*Ancho y altura son modificables al requerimiento de cada uno*/
+width:73px;
+height:55px;
+overflow:hidden;
+padding: 10px 10px 10px 0;
+}
+@media (max-width: 767px) {
+  .social-item a{
+          height: 30px;
+        }
+        .social-item {/*Ancho y altura son modificables al requerimiento de cada uno*/
+        width:40px;
+        height:40px;
+        overflow:hidden;
+        }
+
 }
