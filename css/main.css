@@ -100,7 +100,7 @@ nav > ul > li:hover .sub_nav, .sub_nav li:hover .sub_sub_nav{ opacity: 1; filter
 
 .ico_buscar{ background: url(../images/buscar.png) no-repeat #fff center; width: 85px; height: 85px; margin-right: 20px; border: 1px solid #a7a9ab;}
 
-.c_buscador{color: #6e6f72; margin-bottom: 35px;}
+.c_buscador{color: #6e6f72; margin-bottom: 35px; display: none;}
 .c_buscador h3{ font-size: 33px; line-height: 32px;}
 
 .st_filter{ margin-bottom: 45px;}
@@ -905,13 +905,13 @@ html.swipebox-html.swipebox-touch {
           margin: 10 10px;
         }
         .whatsapp{
-          background-image: url('http://www.cumbrera.co/wp-content/themes/cumbrera/icons/wp.svg');
+          background-image: url('https://www.cumbrera.co/wp-content/themes/cumbrera/icons/wp.svg');
         }
         .facebook{
-          background-image: url('http://www.cumbrera.co/wp-content/themes/cumbrera/icons/fb.svg');
+          background-image: url('https://www.cumbrera.co/wp-content/themes/cumbrera/icons/fb.svg');
         }
         .instagram{
-          background-image: url('http://www.cumbrera.co/wp-content/themes/cumbrera/icons/ig.svg');
+          background-image: url('https://www.cumbrera.co/wp-content/themes/cumbrera/icons/ig.svg');
         }
 
 .social-item a {
